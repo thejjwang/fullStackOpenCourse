@@ -1,5 +1,14 @@
 import { useState } from 'react'
 
+const Button = ({handleClick}) => {
+
+    return (
+      <div>
+        <button onClick={handleClick}>next anecdote</button>
+      </div>
+    )
+}
+
 const App = () => {
   const anecdotes = [
     'If it hurts, do it more often.',
@@ -14,9 +23,12 @@ const App = () => {
    
   const [selected, setSelected] = useState(0)
 
+  const handleClick = () => setSelected((prev) => prev + 1)
+
   return (
     <div>
       {anecdotes[selected]}
+      <Button handleClick={handleClick}/>
     </div>
   )
 }
