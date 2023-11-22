@@ -1,5 +1,3 @@
-import Part from "./Part";
-
 import React from "react";
 
 const Content = ({course}) => {
