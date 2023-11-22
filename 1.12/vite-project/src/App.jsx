@@ -16,6 +16,16 @@ const VoteButton = ({ handleVote }) => {
   );
 };
 
+const AnecdoteDisplay = ({ title, anecdote, votes }) => {
+  return (
+    <div>
+      <h2>{title}</h2>
+      <p>{anecdote}</p>
+      <p>has {votes} votes</p>
+    </div>
+  );
+};
+
 const App = () => {
   const anecdotes = [
     "If it hurts, do it more often.",
@@ -40,6 +50,8 @@ const App = () => {
     setVotes(newVotes);
   };
 
+  const indexOfMaxVotes = votes.indexOf(Math.max(...votes));
+
   return (
     <div>
       <h2>Anecdote of the Day</h2>
@@ -47,6 +59,10 @@ const App = () => {
       <p>has {votes[selected]} votes</p>
       <VoteButton handleVote={handleVote} />
       <Button handleClick={handleClick} />
+
+      {votes[indexOfMaxVotes] > 0 && (
+        <AnecdoteDisplay title="Anecdote with Most Votes" anecdote={anecdotes[indexOfMaxVotes]} votes={votes[indexOfMaxVotes]} />
+      )}
     </div>
   );
 };
