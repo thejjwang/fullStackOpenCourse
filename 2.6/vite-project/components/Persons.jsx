@@ -1,6 +1,7 @@
 import React from "react";
 
 const Persons = ({filteredPersons}) => {
+
   return (
     <div>
       <ul>
