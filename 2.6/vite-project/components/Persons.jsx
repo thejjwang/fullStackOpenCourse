@@ -1,9 +1,17 @@
-import React from 'react'
+import React from "react";
 
-const Persons = () => {
+const Persons = ({filteredPersons}) => {
   return (
-    <div>Persons</div>
-  )
-}
+    <div>
+      <ul>
+        {filteredPersons.map((person) => (
+          <li key={person.name}>
+            {person.name} {person.number}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
 
-export default Persons
+export default Persons;
